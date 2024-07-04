@@ -10,6 +10,7 @@ import dotenv from "dotenv"
 //import { DB_NAME } from "./constants";
 
 import connectDB from "./db/index.js";
+import { app } from "./app.js";
 
 //this is due to the dotenv
 dotenv.config({
@@ -17,15 +18,14 @@ dotenv.config({
 })
 //promises return
 connectDB()
-.then(()=> {
-    app.listen(process.env.PORT||8000, () => {
-        console.log(`server is running at port: ${process.env.PORT} `);
+    .then(() => {
+        app.listen(process.env.PORT || 9000, () => {
+            console.log(`⚙️ Server is running at port : ${process.env.PORT}`);
+        })
     })
-})
-.catch((err) => {
-    console.log("MONGO db connect failed!!!", err);
-
-})
+    .catch((err) => {
+        console.log("MONGO db connection failed !!! ", err);
+    })
 //1st approach
 /*
 import express from "express"
