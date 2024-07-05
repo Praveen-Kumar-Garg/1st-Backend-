@@ -1,7 +1,7 @@
 import { v2 as cloudinary } from "cloudinary"
 
 import fs from "fs"
-//file system which upload the file at local server and after using that file it get unlink
+//file system which upload the file at local server and after using that ,file it get unlink
 
 
 // Configuration
@@ -11,7 +11,7 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET // Click 'View Credentials' below to copy your API secret
 });
 
-
+//upload from localfile path which has been created
 const uploadOnCloudinary = sync(localFilePath) => {
     try {
         if (!localFilePath) return null

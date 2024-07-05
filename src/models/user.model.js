@@ -60,7 +60,7 @@ const userSchema = new Schema({
 userSchema.pre("save", async function (next) {
     //not save password everytime  if it is modified then only save again
     if (!this.isModified("password")) return next();
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next()
     //10 means 10 round hash
 })
